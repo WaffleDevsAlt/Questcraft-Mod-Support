@@ -1,0 +1,13 @@
+p {
+    margin:0;
+    display: inline-block;
+    font-size: 20px;
+}
+html {
+    color: white;
+    background-color: black;
+}
+
+.modtable {
+    width:100%;
+}
