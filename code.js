@@ -632,6 +632,7 @@ let modmanagerJson = {
         }
     }
 }
+let aaaq = 0;
 let mods = []
 let curseforgeArr = modmanagerJson['curseforge']
 let colors = ['rgb(255,0,0)', 'rgb(200,200,0)', 'rgb(0,255,0)']
@@ -642,32 +643,38 @@ for (var a in modmanagerJson.curseforge) {
         mods.push(`${a}:${mod.slug}:${mod.compat}`)
     }
 }
+
 mods.sort(function (a, b) {
     return a.localeCompare(b); //using String.prototype.localCompare()
 });
+
 for(let i = 0; i < mods.length; i++) {
     let data = mods[i].split(':')
-    if(data[2] == '3') {
+    if(data[2] == 3) {
         $("body").append($(`<div class="modtable"><p id="${data[1]}" class="mod"><a id="${data[1]}l" href="https://www.curseforge.com/minecraft/mc-mods/${data[1]}">${data[0]}</a></div>`));
         $(`#${data[1]}l`).css('color', colors[data[2]-1])
-        mods.splice(i, 1)
+        mods.splice(i, 0)
+        aaaq++
     }
 }
 
 for(let a = 0; a < mods.length; a++) {
     let data = mods[a].split(':')
-    if(data[2] == '2') {
+    if(data[2] == 2) {
         $("body").append($(`<div class="modtable"><p id="${data[1]}" class="mod"><a id="${data[1]}l" href="https://www.curseforge.com/minecraft/mc-mods/${data[1]}">${data[0]}</a></div>`));
         $(`#${data[1]}l`).css('color', colors[data[2]-1])
-        mods.splice(a, 1)
+        mods.splice(a, 0)
+        aaaq++
     }
 }
 
 for(let j = 0; j < mods.length; j++) {
     let data = mods[j].split(':')
-    if(data[2] == '1') {
+    if(data[2] == 1) {
         $("body").append($(`<div class="modtable"><p id="${data[1]}" class="mod"><a id="${data[1]}l" href="https://www.curseforge.com/minecraft/mc-mods/${data[1]}">${data[0]}</a></div>`));
         $(`#${data[1]}l`).css('color', colors[data[2]-1])
-        mods.splice(j, 1)
+        mods.splice(j, 0)
+        aaaq++
     }
 }
+console.log(aaaq)
